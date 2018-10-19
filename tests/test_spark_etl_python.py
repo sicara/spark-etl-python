@@ -3,13 +3,11 @@
 
 """Tests for `spark_etl_python` package."""
 
-import pytest
 import pandas as pd
+from pandas.testing import assert_frame_equal
 
 
-from spark_etl_python import spark_etl_python
-
-
-def test_content(response):
-    """Sample pytest test function with the pytest fixture as an argument."""
-    pd.DataFrame()
+def test_content():
+    df_expected = pd.DataFrame({'a': [0]})
+    df_actual = pd.DataFrame({'a': [0]})
+    assert_frame_equal(df_expected, df_actual)

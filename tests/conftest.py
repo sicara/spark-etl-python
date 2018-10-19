@@ -4,7 +4,7 @@ findspark.init()
 import logging
 import pytest
 
-from pyspark import HiveContext
+from pyspark import HiveContext, SQLContext
 from pyspark import SparkConf
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext
@@ -28,6 +28,15 @@ def spark_context(request):
 
     quiet_py4j()
     return sc
+
+
+@pytest.fixture(scope="session")
+def sql_context(spark_context):
+    """ fixture for creating a spark context
+    Args:
+        request: pytest.FixtureRequest object
+    """
+    return SQLContext(spark_context)
 
 
 @pytest.fixture(scope="session")

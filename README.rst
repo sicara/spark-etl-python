@@ -29,7 +29,11 @@ A Python package that provides helpers for cleaning, deduplication, enrichment, 
 Installation
 ------------
 
-You need to install Spark 2.3.2.
+You need to install Spark 2.
+
+Mac:
+
+`brew install apache-spark`
 
 
 Features
@@ -40,6 +44,8 @@ Features
 
 Develop
 -------
+
+To the regular installation step.
 
 In order to be able to develop on this package:
 

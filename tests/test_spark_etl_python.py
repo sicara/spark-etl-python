@@ -7,6 +7,7 @@
 from __future__ import print_function
 import pandas as pd
 import pytest
+
 from pandas.testing import assert_frame_equal
 
 
@@ -18,34 +19,27 @@ def test_content():
     df_actual = pd.DataFrame({'a': [0]})
     assert_frame_equal(df_expected, df_actual)
 
-from operator import add
+def filter_df(df):
+    return df.filter(df.year >= 2000)
 
 
-def do_word_counts(lines):
-    """ count of words in an rdd of lines """
+def assert_frame_equal_with_sort(results, expected, keycolumns):
+    results_sorted = results.sort_values(by=keycolumns).reset_index(drop=True)
+    expected_sorted = expected.sort_values(by=keycolumns).reset_index(drop=True)
+    assert_frame_equal(results_sorted, expected_sorted)
 
-    counts = (lines.flatMap(lambda x: x.split())
-                  .map(lambda x: (x, 1))
-                  .reduceByKey(add)
-             )
-    results = {word: count for word, count in counts.collect()}
-    return results
-
-
-def test_do_word_counts(spark_context):
+def test_do_filter(sql_context):
     """ test that a single event is parsed correctly
     Args:
-        spark_context: test fixture SparkContext
-        hive_context: test fixture HiveContext
+        sql_context: test fixture SQLContext
     """
+    data_pandas = pd.DataFrame({'make': ['Jaguar', 'MG', 'MINI', 'Rover', 'Lotus'],
+                                'registration': ['AB98ABCD', 'BC99BCDF', 'CD00CDE', 'DE01DEF', 'EF02EFG'],
+                                'year': [1998, 1999, 2000, 2001, 2002]})
 
-    test_input = [
-        ' hello spark ',
-        ' hello again spark spark'
-    ]
-
-    input_rdd = spark_context.parallelize(test_input, 1)
-    results = do_word_counts(input_rdd)
-
-    expected_results = {'hello': 2, 'spark': 3, 'again': 1}
-    assert results == expected_results
+    input_rdd = sql_context.createDataFrame(data_pandas)
+    results_df = filter_df(input_rdd).toPandas()
+    expected_results = pd.DataFrame({'make': ['Rover', 'Lotus', 'MINI'],
+                                     'registration': ['DE01DEF', 'EF02EFG', 'CD00CDE'],
+                                     'year': [2001, 2002, 2000]})
+    assert_frame_equal_with_sort(expected_results, results_df, ['make'])

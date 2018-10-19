@@ -26,6 +26,11 @@ A Python package that provides helpers for cleaning, deduplication, enrichment, 
 * Free software: MIT license
 * Documentation: https://spark-etl-python.readthedocs.io.
 
+Installation
+------------
+
+You need to install Spark 2.3.2.
+
 
 Features
 --------

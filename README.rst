@@ -32,6 +32,20 @@ Features
 
 * TODO
 
+
+Develop
+-------
+
+In order to be able to develop on this package:
+
+1. Create a virtual environment
+2. Install pip-tools: `pip install pip-tools`
+3. Run `pip-sync requirements_dev.txt requirements.txt`
+
+To update dependencies, add them to `requirements.in` (if they are needed to run the package) or `requirements_dev.in`.
+Then run `pip-compile requirements.in` or `pip-compile requirements_dev.in`.
+
+
 Credits
 -------
 

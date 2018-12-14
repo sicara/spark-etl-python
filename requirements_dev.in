@@ -11,3 +11,4 @@ pip-tools
 
 pytest==3.8.2
 pytest-runner==4.2
+pytest-spark

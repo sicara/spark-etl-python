@@ -100,3 +100,8 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+scala_functions.scala
+
+tests/metastore_db
+tests/derby.log

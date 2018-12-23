@@ -31,7 +31,7 @@ def assert_frame_equal_with_sort(actual, expected, keycolumns=None, ignore_rows_
 def test_derive_full_address(spark_session):
     personal_info_df = pd.DataFrame([
         {
-            'street_number': 35,
+            'street_number': '35',
             'street': 'rue de vaugirard',
             'city': 'paris',
             'postal_code': '75001',
@@ -45,7 +45,7 @@ def test_derive_full_address(spark_session):
     ])
     personal_info_with_fulladdress_df_expected = pd.DataFrame([
         {
-            'street_number': 35,
+            'street_number': '35',
             'street': 'rue de vaugirard',
             'city': 'paris',
             'postal_code': '75001',

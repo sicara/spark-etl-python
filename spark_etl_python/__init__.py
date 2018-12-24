@@ -4,4 +4,4 @@
 
 __author__ = """Flavian Hautbois"""
 __email__ = 'flavianh@sicara.com'
-__version__ = '0.1.3'
+__version__ = '0.1.4'

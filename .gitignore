@@ -105,3 +105,6 @@ scala_functions.scala
 
 tests/metastore_db
 tests/derby.log
+
+# Pycharm / IntelliJ
+.idea/workspace.xml

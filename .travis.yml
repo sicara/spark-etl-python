@@ -3,22 +3,19 @@ python:
 - 3.6
 - 3.5
 - 2.7
-
 sudo: required
 cache:
-  - pip: true
+- pip: true
 before_install:
-  - curl -L -o spark.tgz https://s3.amazonaws.com/spark-related-packages/spark-2.2.0-bin-hadoop2.7.tgz
-  - export SPARK_HOME=./local/spark
-  - mkdir -p "$SPARK_HOME"
-  - tar -xf spark.tgz -C "$SPARK_HOME" --strip-components=1
-  - export PATH="$SPARK_HOME/bin:$PATH"
-  - export SPARK_LOCAL_IP="127.0.0.1"
-  # These lines here just suppress a lot of noisy log messages from Spark.
-  - echo "log4j.logger.org.apache.spark=WARN" > "$SPARK_HOME"/conf/log4j.properties
-  - echo "log4j.logger.org.apache.hadoop.util.NativeCodeLoader=ERROR" >> "$SPARK_HOME"/conf/log4j.properties
-  - echo "log4j.logger.org.apache.parquet=ERROR" >> "$SPARK_HOME"/conf/log4j.properties
-
+- curl -L -o spark.tgz https://s3.amazonaws.com/spark-related-packages/spark-2.2.0-bin-hadoop2.7.tgz
+- export SPARK_HOME=./local/spark
+- mkdir -p "$SPARK_HOME"
+- tar -xf spark.tgz -C "$SPARK_HOME" --strip-components=1
+- export PATH="$SPARK_HOME/bin:$PATH"
+- export SPARK_LOCAL_IP="127.0.0.1"
+- echo "log4j.logger.org.apache.spark=WARN" > "$SPARK_HOME"/conf/log4j.properties
+- echo "log4j.logger.org.apache.hadoop.util.NativeCodeLoader=ERROR" >> "$SPARK_HOME"/conf/log4j.properties
+- echo "log4j.logger.org.apache.parquet=ERROR" >> "$SPARK_HOME"/conf/log4j.properties
 install: pip install -U tox-travis
 script: tox
 deploy:
@@ -26,7 +23,7 @@ deploy:
   distributions: sdist bdist_wheel
   user: flavianhautbois
   password:
-    secure: dGCPoN7+Uj6GU9NJp+CFLLXc1Rq0QHbGROMZvNXBLrlcFMViq1ElLb0lQmsigUGmYBasUIBDPMzxF2eA0hNbADZicNgD+ZxqYxCEKiFScBaZ2kVzBGkIehzBJ2ui6WwrVUIQd/r8W3eT3hbexVpRNUeqK5+FgZ2/t+f6O0t0tXm/Ematz3rCw6ceBR0Siip5i9Vz7OXN/K8cLYFjRRoOT+f4HpVzaeTUlktd9M06G1WVbLv0VF4zm1R48ei32cbd2nObUYzKwBfDCBSlXGCp8vg/ErNDJ/QGIkKj71nL2lkqJkK2gKhFF4Fl6LUvBlEusw1U1fZkiwRhtE8D2u+5/1I5f8XgAL/wh3a6gj+gn0EmuDjiewahQEdpLBWlNwYl7SAdIjvZ/Re/vi0UB9cxW1FRL92uEOBF//twHh9yQ+9a5uDREpZAWlFQUNe0+YdbEa3n4KyGC/nQMW5hlPZGJ5JwyHP0ZJc7ihPTnNcl4lT2LeYXPBhYa/l4/D4de8vgIreTCsMFqpLatvG3q3nVtSUmhmo6nqBsUYwle6SWcNEr4/k5L+8A/Xns0L1HjQ9tADuxL0JKrS0Wfdh2qD1Xu+qo3GGqv6qclgvt64oWMfuX7DPFynZlWWkCcsR2CEs99moN+xiswtMNDbkTYBfg6BjTYoTCdOx+su+Hjj086aY=
+    secure: qPQeR/PPqjB+gVk5p8O8RzSeNVHifg/zCl2xm4ePVyEt2YrDkdufnRE8eLPypUYvgV9e+FdKQpzJ8XKMZuVa5JdQUGPlTZd/GgoyS62o8EXfyvCg71ILTqTgREpgY7AReTG/d6QqnyAR1rRCr6jHztCVTtW02rIOFXrupyqRxnMdcz16MLIjgfvPOCuO7v8TGQRj4EmyrPvpgGYBI4vCdVxE6lOSxBdRCyca9SVJTD2tLmCRxK6FLQYAJubMKjHYGVctA1t+KOzArzTRMl8Di3V6DCvBYtQr7Gk65CZarySXrubAW95D42tHOzfPY5kOuUosVJty2iuuMXL+TGMzvlxNayPQpOqTVY8xLmL+vrcankiL8bCZ4viiCU8jfzUYhg4IaSanlTNWS4ug1bHxNsWZuma362pwUsfZc+g/8v18G3nNLczolW7rsMD5eSTITHJRLZfdTSRKgrZTvS0nl9+nFlhf5s4ITkiJweNPix8aXKrD0UGRe8sMmS4inbJhUR8Hd1NsDXHXEvAdtgeN5zUL3uh75me6dKH9niSYCOo+0vMqYIiTW7qANP7/xkevq2wSas2fyFK2N8IIOZqoMtRNyZZR1Ql2ODihC3wZYg+6LpgJs76ytcssLs0AatvDWFFGfXtNeLm1y2Om/PRLh6oAHl0Vq57XKmuVVHIqkok=
   on:
     tags: true
     repo: flavianh/spark_etl_python

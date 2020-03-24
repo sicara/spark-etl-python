@@ -43,7 +43,7 @@ pytest-runner==4.2
 pytest-spark==0.4.5
 pytest==3.8.2
 pytz==2018.5              # via babel
-pyyaml==3.13              # via watchdog
+pyyaml==5.3.1              # via watchdog
 readme-renderer==22.0     # via twine
 requests-toolbelt==0.8.0  # via twine
 requests==2.20.0          # via requests-toolbelt, sphinx, twine

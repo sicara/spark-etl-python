@@ -4,62 +4,153 @@
 #
 #    pip-compile --output-file requirements_dev.txt requirements_dev.in
 #
-alabaster==0.7.12         # via sphinx
-argh==0.26.2              # via watchdog
-atomicwrites==1.2.1       # via pytest
-attrs==18.2.0             # via pytest
-babel==2.6.0              # via sphinx
-bleach==3.0.2             # via readme-renderer
+alabaster==0.7.12
+    # via sphinx
+argh==0.26.2
+    # via watchdog
+atomicwrites==1.2.1
+    # via pytest
+attrs==18.2.0
+    # via pytest
+babel==2.6.0
+    # via sphinx
+bleach==3.0.2
+    # via readme-renderer
 bumpversion==0.5.3
-certifi==2018.10.15       # via requests
-cffi==1.11.5              # via cmarkgfm
-chardet==3.0.4            # via requests
-click==7.0                # via pip-tools
-cmarkgfm==0.4.2           # via readme-renderer
+    # via -r requirements_dev.in
+certifi==2018.10.15
+    # via requests
+cffi==1.11.5
+    # via cmarkgfm
+chardet==3.0.4
+    # via requests
+click==7.0
+    # via pip-tools
+cmarkgfm==0.4.2
+    # via readme-renderer
+configparser==4.0.2
+    # via flake8
 coverage==4.5.1
-docutils==0.14            # via readme-renderer, sphinx
-filelock==3.0.9           # via tox
-findspark==1.3.0          # via pytest-spark
+    # via -r requirements_dev.in
+docutils==0.14
+    # via
+    #   readme-renderer
+    #   sphinx
+enum34==1.1.10
+    # via flake8
+filelock==3.0.9
+    # via tox
+findspark==1.3.0
+    # via pytest-spark
 flake8==3.5.0
-future==0.16.0            # via readme-renderer
-idna==2.7                 # via requests
-imagesize==1.1.0          # via sphinx
-jinja2==2.10              # via sphinx
-markupsafe==1.0           # via jinja2
-mccabe==0.6.1             # via flake8
-more-itertools==4.3.0     # via pytest
-packaging==18.0           # via sphinx
-pathtools==0.1.2          # via watchdog
+    # via -r requirements_dev.in
+funcsigs==1.0.2
+    # via pytest
+future==0.16.0
+    # via readme-renderer
+idna==2.7
+    # via requests
+imagesize==1.1.0
+    # via sphinx
+jinja2==2.10
+    # via sphinx
+markupsafe==1.0
+    # via jinja2
+mccabe==0.6.1
+    # via flake8
+more-itertools==4.3.0
+    # via pytest
+packaging==18.0
+    # via sphinx
+pathlib2==2.3.5
+    # via pytest
+pathtools==0.1.2
+    # via watchdog
 pip-tools==3.1.0
-pkginfo==1.4.2            # via twine
-pluggy==0.8.0             # via pytest, tox
-py==1.7.0                 # via pytest, tox
-pycodestyle==2.3.1        # via flake8
-pycparser==2.19           # via cffi
-pyflakes==1.6.0           # via flake8
-pygments==2.2.0           # via readme-renderer, sphinx
-pyparsing==2.2.2          # via packaging
+    # via -r requirements_dev.in
+pkginfo==1.4.2
+    # via twine
+pluggy==0.8.0
+    # via
+    #   pytest
+    #   tox
+py==1.10.0
+    # via
+    #   pytest
+    #   tox
+pycodestyle==2.3.1
+    # via flake8
+pycparser==2.19
+    # via cffi
+pyflakes==1.6.0
+    # via flake8
+pygments==2.2.0
+    # via
+    #   readme-renderer
+    #   sphinx
+pyparsing==2.2.2
+    # via packaging
 pytest-runner==4.2
+    # via -r requirements_dev.in
 pytest-spark==0.4.5
+    # via -r requirements_dev.in
 pytest==3.8.2
-pytz==2018.5              # via babel
-pyyaml==3.13              # via watchdog
-readme-renderer==22.0     # via twine
-requests-toolbelt==0.8.0  # via twine
-requests==2.20.0          # via requests-toolbelt, sphinx, twine
-six==1.11.0               # via bleach, more-itertools, packaging, pip-tools, pytest, readme-renderer, sphinx, tox
-snowballstemmer==1.2.1    # via sphinx
+    # via
+    #   -r requirements_dev.in
+    #   pytest-spark
+pytz==2018.5
+    # via babel
+pyyaml==3.13
+    # via watchdog
+readme-renderer==22.0
+    # via twine
+requests-toolbelt==0.8.0
+    # via twine
+requests==2.20.0
+    # via
+    #   requests-toolbelt
+    #   sphinx
+    #   twine
+scandir==1.10.0
+    # via pathlib2
+six==1.11.0
+    # via
+    #   bleach
+    #   more-itertools
+    #   packaging
+    #   pathlib2
+    #   pip-tools
+    #   pytest
+    #   readme-renderer
+    #   sphinx
+    #   tox
+snowballstemmer==1.2.1
+    # via sphinx
 sphinx==1.8.1
-sphinxcontrib-websupport==1.1.0  # via sphinx
-toml==0.10.0              # via tox
+    # via -r requirements_dev.in
+sphinxcontrib-websupport==1.1.0
+    # via sphinx
+toml==0.10.0
+    # via tox
 tox==3.5.2
-tqdm==4.27.0              # via twine
+    # via -r requirements_dev.in
+tqdm==4.27.0
+    # via twine
 twine==1.12.1
-urllib3==1.24             # via requests
-virtualenv==16.0.0        # via tox
+    # via -r requirements_dev.in
+typing==3.7.4.3
+    # via sphinx
+urllib3==1.24
+    # via requests
+virtualenv==16.0.0
+    # via tox
 watchdog==0.9.0
-webencodings==0.5.1       # via bleach
+    # via -r requirements_dev.in
+webencodings==0.5.1
+    # via bleach
 wheel==0.32.1
+    # via -r requirements_dev.in
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
+# setuptools
